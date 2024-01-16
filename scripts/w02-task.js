@@ -17,11 +17,15 @@ const imageElement = document.getElementById("profile-picture");
 
 const foodElement = document.getElementById("food");
 
+const yearElement = document.querySelector("#year");
+
 /* Step 4 - Adding Content */
 
 nameElement.innerHTML = `<strong>${fullName}</strong>`;
 
 imageElement.src = profilePicture;
+
+yearElement.innerHTML = currentYear;
 
 
 /* Step 5 - Array */
