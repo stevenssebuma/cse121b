@@ -25,6 +25,8 @@ nameElement.innerHTML = `<strong>${fullName}</strong>`;
 
 imageElement.src = profilePicture;
 
+imageElement.alt = "Profile image of" + fullName;
+
 yearElement.innerHTML = currentYear;
 
 
