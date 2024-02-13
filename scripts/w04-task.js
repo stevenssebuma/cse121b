@@ -24,7 +24,7 @@ myProfile.placesLived.push(
 document.querySelector("#name").textContent = myProfile.name;
 
 /* Photo with attributes */
-var img = document.getElementById("photo");
+let img = document.getElementById("photo");
 img.src = myProfile.photo;
 img.alt = myProfile.name;
 
