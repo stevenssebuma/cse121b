@@ -1,9 +1,9 @@
-
 /* W05: Programming Tasks */
 
 /* Declare and initialize global variables */
 const templesElement = document.querySelector("#temples");
 let templeList = [];
+
 /* async displayTemples Function */
 const displayTemples = (temples) => {
   temples.forEach((temple) => {
@@ -18,6 +18,7 @@ const displayTemples = (temples) => {
     templesElement.appendChild(article);
   });
 };
+
 /* async getTemples Function using fetch() */
 const getTemples = async () => {
   // Fetch JSON temple data
@@ -27,11 +28,13 @@ const getTemples = async () => {
   // Call the displayTemples function with the templeList
   displayTemples(templeList);
 }
+
 /* reset Function */
 const reset = () => {
   // Clear the displayed list of temples
   templesElement.innerHTML = "";
 }
+
 /* filterTemples Function */
 const filterTemples = (temples) => {
   // Call the reset function to clear the output
@@ -42,20 +45,21 @@ const filterTemples = (temples) => {
     case "utah":
       displayTemples(temples.filter(temple => temple.location.includes("Utah")));
       break;
-    case "nonutah":
-      displayTemples(temples.filter(temple => !temple.location.includes("Utah")));
+      case "notutah":
+      displayTemples(temples.filter(temple => !temple.location.toLowerCase().includes("utah")));
       break;
-    case "older":
-    displayTemples(temples.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1)));
-    break;
-  case "all":
-  default:
-    displayTemples(temples);
+      case "older":
+      displayTemples(temples.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1)));
+      break;
+    case "all":
+    default:
+      displayTemples(temples);
+  }
 }
-}
+
 /* Event Listener */
 document.querySelector("#filtered").addEventListener("change", () => {
   filterTemples(templeList);
 });
+
 getTemples();
-  
